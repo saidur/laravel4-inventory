@@ -5,7 +5,10 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.1.*",
-		"mrjuliuss/syntara": "1.2.*"
+		"mrjuliuss/syntara": "1.2.*",
+		"way/generators": "dev-master",
+		"aquanode/formation": "dev-master",
+		"mgallegos/laravel-jqgrid": "dev-master"
 	},
 	"autoload": {
 		"classmap": [

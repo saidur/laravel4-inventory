@@ -1,9 +1,4 @@
 <?php
-//use MrJuliuss\Syntara\Controllers\BaseController;
-//use MrJuliss\Syntara\Controllers\BaseController;
-
-//use MrJuliuss\Syntara\Controllers\BaseController;
-//use MrJuliuss\Syntara\Controllers\PermissionProvider;
 
 use MrJuliuss\Syntara\Controllers\BaseController;
 
@@ -37,19 +32,7 @@ class GamesController extends BaseController
 
         $permission =  PermissionProvider::findById(1);
         
-        //echo "<pre>";
-        //print_r ($permission);
-        //var_dump ($permission);
-
-		//echo Hash::make('admin123');
-		
-		//$permission = PermissionProvider::findAll();
-		//var_dump ($permission);
-
-
-		//$games = Game::all();
-		//return View::make('index',compact('games'));
-	
+        
         $this->layout = View::make(Config::get('syntara::views.dashboard-index'));
         $this->layout->title = trans('syntara::all.titles.index');
         $this->layout->breadcrumb = Config::get('syntara::breadcrumbs.dashboard');

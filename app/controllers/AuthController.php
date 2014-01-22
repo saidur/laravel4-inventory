@@ -1,4 +1,5 @@
 <?php
+
 class AuthController extends BaseController
 {
 	
@@ -7,7 +8,6 @@ class AuthController extends BaseController
     {
     	
         return View::make("login");
-    	// return Redirect::action('GamesController@index');
     }
 
 
@@ -56,10 +56,6 @@ class AuthController extends BaseController
     
     }
 
-
-
 }
-
-
 
 ?>

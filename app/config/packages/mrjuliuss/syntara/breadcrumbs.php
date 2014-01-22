@@ -22,13 +22,6 @@ return array(
             'icon' => 'glyphicon-user'
         )
     ),
-    'games' => array(
-        array(
-            'title' => trans('syntara::breadcrumbs.games'),
-            'link' => URL::route('listGames'),
-            'icon' => 'glyphicon-user'
-        )
-    ),
     'create_user' => array(
         array(
             'title' => trans('syntara::breadcrumbs.users'),

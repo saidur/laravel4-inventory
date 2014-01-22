@@ -109,7 +109,10 @@ return array(
 		'Cartalyst\Sentry\SentryServiceProvider',
 		
 		'Mrjuliuss\Syntara\SyntaraServiceProvider',
+		'Way\Generators\GeneratorsServiceProvider',
 
+		'Aquanode\Formation\FormationServiceProvider',
+		'Mgallegos\LaravelJqgrid\LaravelJqgridServiceProvider',
 	),
 
 	/*
@@ -176,6 +179,8 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
 		'Sentry' 		  => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
+		'Form' 			  => 'Aquanode\Formation\Formation',
+		'GridRender' => 'Mgallegos\LaravelJqgrid\Facades\GridRender',
 
 	),
 

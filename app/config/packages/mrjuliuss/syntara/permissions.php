@@ -2,7 +2,6 @@
 
 return array(
         'listGroups' => 'groups-management',
-        'listGames' => 'games-management',
         'newGroupPost' => 'groups-management',
         'newGroup' => 'groups-management',
         'deleteGroup' => 'groups-management',

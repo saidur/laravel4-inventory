@@ -14,6 +14,7 @@
 Route::get('/', function()
 {
 	
+
 	return View::make('hello');
 });
 
@@ -25,6 +26,21 @@ Route::group(array('before' => 'basicAuth|hasPermissions', 'prefix' => Config::g
 {
 	
 	Route::get('games', array('as' => 'listGames', 'before' => 'hasPermissions:create.article','uses' => 'GamesController@index'));
+	//Route::resource('branches', 'BranchesController');
+	Route::get('/branch', array('as' => 'listBranch','before' => 'hasPermissions:list.branches', 'uses' => 'BranchesController@index'));
+	Route::get('/branch/new', array('as' => 'createBranch','before' => 'hasPermissions:create.branch', 'uses' => 'BranchesController@create'));
+	Route::post('/branch/new', array('as' => 'createBranch','before' => 'hasPermissions:create.branch', 'uses' => 'BranchesController@store'));
+
+	Route::get('/category', array('as' => 'listCategory','before' => 'hasPermissions:list.category', 'uses' => 'CategoriesController@index'));
+	Route::get('/category/create', array('as' => 'categories.create','before' => 'hasPermissions:create.category', 'uses' => 'CategoriesController@create'));
+	Route::get('/category/store', array('as' => 'categories.store','before' => 'hasPermissions:store.category', 'uses' => 'CategoriesController@store'));
+
+
+	Route::get('/product', array('as' => 'listProduct','before' => 'hasPermissions:list.products', 'uses' => 'ProductController@index'));
+	
+	Route::get('/product/create', array('as' => 'product.create','before' => 'hasPermissions:create.product', 'uses' => 'ProductController@create'));
+	Route::post('product/store', array('as' => 'product.store','before' => 'hasPermissions:create.product', 'uses' => 'ProductController@store'));
+
 
 });	
 
@@ -63,3 +79,8 @@ Route::post('/register','AuthController@createRegister');
 
 
 Config::set('syntara::views.dashboard-index', 'index-view');
+
+
+
+
+Route::resource('companies', 'CompaniesController');
