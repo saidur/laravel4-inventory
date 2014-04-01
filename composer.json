@@ -8,7 +8,9 @@
 		"mrjuliuss/syntara": "1.2.*",
 		"way/generators": "dev-master",
 		"aquanode/formation": "dev-master",
-		"mgallegos/laravel-jqgrid": "dev-master"
+		"mgallegos/laravel-jqgrid": "dev-master",
+		"phpunit/phpunit": "3.7.*",
+		"mockery/mockery": "dev-master@dev"
 	},
 	"autoload": {
 		"classmap": [
@@ -18,7 +20,11 @@
 			"app/database/migrations",
 			"app/database/seeds",
 			"app/tests/TestCase.php"
-		]
+		],
+		
+		"psr-0" :{
+			"Demo" : "app"
+		}
 	},
 	"scripts": {
 		"post-install-cmd": [

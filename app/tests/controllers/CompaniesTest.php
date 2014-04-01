@@ -29,6 +29,8 @@ class CompaniesTest extends TestCase {
 		$this->mock->shouldReceive('all')->once()->andReturn($this->collection);
 		$this->call('GET', 'companies');
 
+		
+
 		$this->assertViewHas('companies');
 	}
 

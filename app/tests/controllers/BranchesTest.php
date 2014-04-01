@@ -2,6 +2,8 @@
 
 use Mockery as m;
 use Way\Tests\Factory;
+use Illuminate\Database\Eloquent\Collection;
+
 
 class BranchesTest extends TestCase {
 
@@ -30,6 +32,7 @@ class BranchesTest extends TestCase {
 		$this->call('GET', 'branches');
 
 		$this->assertViewHas('branches');
+		
 	}
 
 	public function testCreate()

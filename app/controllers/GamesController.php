@@ -8,6 +8,8 @@ class GamesController extends BaseController
 	function __construct ()
 	{
 		$this->beforeFilter('auth', array('except' => 'index'));
+	
+		
 	}
 
 	public function index()

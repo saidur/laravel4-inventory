@@ -22,8 +22,8 @@
         <td style="text-align: center;">
             <input type="checkbox" data-group-id="">
         </td>
-        <td style="text-align: center;"></td>
-        <td></td>
+        <td style="text-align: center;"> {{{ $branch->name }}}</td>
+        <td>{{{ $branch->description }}}</td>
        <td style="text-align: center;">&nbsp;<a href="">{{ trans('syntara::all.show') }}</a></td>
     </tr>
     @endforeach

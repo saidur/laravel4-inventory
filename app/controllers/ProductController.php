@@ -1,6 +1,9 @@
 <?php
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\View;
 use MrJuliuss\Syntara\Controllers\BaseController;
-
+use Mgallegos\LaravelJqgrid\Encoders\RequestedDataInterface;
+use Demo\Repository\ProductRepository;
 
 class ProductController extends BaseController {
 
@@ -11,12 +14,21 @@ class ProductController extends BaseController {
 	 */
 	protected $product;
 
+	protected $GridEncoder;
+    
+    protected $ProductRepository;
+    
+    //protected $InvoiceItemRepository;
 
-	function __construct(Product $product)
-	{
-		$this->product = $product;
 
-	}
+	public function __construct(RequestedDataInterface $GridEncoder,ProductRepository $ProductRepository)
+    {
+        
+    	
+    	$this->product 				= new Product ();
+    	$this->GridEncoder 			= $GridEncoder;
+        $this->ProductRepository 	= $ProductRepository;
+   }
 
 	/**
 	 * Display a listing of the resource.
@@ -25,10 +37,22 @@ class ProductController extends BaseController {
 	 */
 	public function index()
 	{
-		
-        return View::make('admin.products.index');
+		$products = $this->product->all();
+		        
+        return View::make('admin.products.index',compact('products'));
 	}
 
+	/**
+
+	**/
+	public function grid()
+    {
+       	$this->layout = '';
+        $this->GridEncoder->encodeRequestedData($this->ProductRepository, Input::all());
+    	 
+    }
+
+	
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -36,6 +60,7 @@ class ProductController extends BaseController {
 	 */
 	public function create()
 	{
+        
         return View::make('admin.products.create');
 	}
 
@@ -48,14 +73,27 @@ class ProductController extends BaseController {
 	{
 		
 		//
-		 $input 		= Input::all();
-		//print_r ($input);	
-
-		 $this->product->create($input['product']);
-		 return Redirect::route('product.create')
-			->withInput()
-			->with('message', 'Successfully create.');
+		$input 		= Input::all();
 		
+		$rules = array(
+    					'product.name' => array('required'), //'user.name' can be used for an array field like "user[name]"
+    					'product.description'     => array('required')
+					);
+		
+		Form::setValidationRules($rules);
+
+		if (Form::validated()) {		
+		 	$this->product->create($input['product']);
+		 	return Redirect::route('product.index')
+				->withInput()
+				->with('message', 'Successfully create.');
+			}else
+			{
+
+				return Redirect::route('product.create')
+				->withInput()
+				->with('message', 'Error .');
+			}
 	}
 
 	/**
@@ -101,5 +139,7 @@ class ProductController extends BaseController {
 	{
 		//
 	}
+
+	
 
 }

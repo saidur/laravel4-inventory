@@ -61,8 +61,18 @@ return array(
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
-		),
+		), 
 
+		/*'mysql' => array(
+			'driver'    => 'mysql',
+			'host'      => '76.163.252.218',
+			'database'  => 'C362530_erp',
+			'username'  => 'C362530_bijon',
+			'password'  => 'Plexus789',
+			'charset'   => 'utf8',
+			'collation' => 'utf8_unicode_ci',
+			'prefix'    => '',
+		), */
 		'pgsql' => array(
 			'driver'   => 'pgsql',
 			'host'     => 'localhost',

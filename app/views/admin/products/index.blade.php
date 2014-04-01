@@ -2,25 +2,53 @@
 
 @section('content')
 
-{{ 
-    GridRender::setGridId("myFirstGrid")
-            ->enablefilterToolbar()
-            ->setGridOption('url',URL::to('product/index'))
-            ->setGridOption('rowNum',5)
-            ->setGridOption('shrinkToFit',false)
-            ->setGridOption('sortname','id')
-            ->setGridOption('caption','LaravelJqGrid example')
-            ->setNavigatorOptions('navigator', array('viewtext'=>'view'))
-            ->setNavigatorOptions('view',array('closeOnEscape'=>false))
-            ->setFilterToolbarOptions(array('autosearch'=>true))
-            ->setGridEvent('gridComplete', 'function(){alert("Grid complete event");}') 
-            ->setNavigatorEvent('view', 'beforeShowForm', 'function(){alert("Before show form");}')
-            ->setFilterToolbarEvent('beforeSearch', 'function(){alert("Before search event");}') 
-            ->addColumn(array('index'=>'id', 'width'=>55))
-            ->addColumn(array('name'=>'product','width'=>100))
-            ->addColumn(array('name'=>'amount','index'=>'amount', 'width'=>80, 'align'=>'right'))
-            ->addColumn(array('name'=>'total','index'=>'total', 'width'=>80))
-            ->addColumn(array('name'=>'note','index'=>'note', 'width'=>55,'searchoptions'=>array('attr'=>array('title'=>'Note title'))))
-            ->renderGrid(); 
-}}
-@stop
+<div class="container" id="main-container">
+ @include('syntara::layouts.dashboard.confirmation-modal',  array('title' => trans('syntara::all.confirm-delete-title'), 'content' => trans('syntara::all.confirm-delete-message'), 'type' => 'delete-group'))
+    <div class="row">
+
+        <div class="col-lg-10">
+            <section class="module">
+                <div class="module-head">
+                    <b>All Products</b>
+                </div>
+                
+            </section>
+        </div>
+
+
+<p>{{ link_to_route('product.create', 'Add new Product') }}</p> 
+
+ @if ($products->count())
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Branch</th>
+                <th>quantity</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach ($products as $product)
+                <tr>
+                    <td>{{{ $product->name }}}</td>
+                    <td>{{{ $product->category_id }}}</td>
+                    <td>{{{ $product->branch_id }}}</td>
+                    <td>{{{ $product->quantity }}}</td>
+                    <td>{{{ $product->description }}}</td>
+                    
+                    <td>
+                       
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+@else
+    There are no branches
+@endif
+
+@stop 
+</div>

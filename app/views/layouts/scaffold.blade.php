@@ -1,28 +1,20 @@
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
-		<style>
-			table form { margin-bottom: 0; }
-			form ul { margin-left: 0; list-style: none; }
-			.error { color: red; font-style: italic; }
-			body { padding-top: 20px; }
-		</style>
-	</head>
-
-	<body>
-
-		<div class="container">
-			@if (Session::has('message'))
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    
+    </head>
+      
+    <body>
+        
+    
+                @if (Session::has('message'))
 				<div class="flash alert">
 					<p>{{ Session::get('message') }}</p>
 				</div>
 			@endif
 
 			@yield('main')
-		</div>
-
-	</body>
-
+    
+    </body>
 </html>
+

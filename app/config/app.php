@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'url' => 'http://local.games.com/',
+	'url' => 'local.games.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -107,12 +107,14 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Cartalyst\Sentry\SentryServiceProvider',
-		
 		'Mrjuliuss\Syntara\SyntaraServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
-
 		'Aquanode\Formation\FormationServiceProvider',
 		'Mgallegos\LaravelJqgrid\LaravelJqgridServiceProvider',
+		'Demo\Repository\RepositoryServiceProvider',
+		'Saidur\Inventory\InventoryServiceProvider'
+
+		
 	),
 
 	/*
@@ -181,7 +183,7 @@ return array(
 		'Sentry' 		  => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
 		'Form' 			  => 'Aquanode\Formation\Formation',
 		'GridRender' => 'Mgallegos\LaravelJqgrid\Facades\GridRender',
-
+		
 	),
 
 );

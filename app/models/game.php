@@ -3,15 +3,11 @@
 	{
 
 
-		 function getgamesbyname()
+		function getgamesbyname()
 		{
-
-			//$games = DB::table('games')->get();
 
 			return $games;				
 		}
-
-		
 	}
 
 ?>

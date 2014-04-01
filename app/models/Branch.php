@@ -1,5 +1,9 @@
 <?php
-
+/*
+ *
+ * @work
+ *	
+*/
 class Branch extends Eloquent {
 	protected $guarded = array();
 
@@ -7,4 +11,9 @@ class Branch extends Eloquent {
 		'name' => 'required',
 		'description' => 'required'
 	);
+
+	public function Product()
+    {
+        return $this->hasMany('Product');
+    }
 }

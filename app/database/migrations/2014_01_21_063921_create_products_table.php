@@ -17,8 +17,11 @@ class CreateProductsTable extends Migration {
 			$table->string('name');
 			$table->text('description');
 			$table->integer('category_id');
+			$table->integer('branch_id');
+			$table->integer('quantity');
+			$table->doubleval('price');
 			$table->timestamps();
-		});
+		});	
 	}
 
 
