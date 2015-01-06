@@ -9,6 +9,3 @@ Demo
 http://tigercarrier.com/erp/stock/public
 login : admin@test.com
 password : admin123
-
-Used : laravel auth
-
